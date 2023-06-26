@@ -1,29 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
+import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax';
+import React, { useRef } from 'react';
+
+import Sky from '../../public/assets/images/sky.jpg';
 
 import { CircleCursor } from './components/CircleCursor';
 
 export default function Home() {
-  const [isContact, setIsContact] = useState(false);
-  return (
-    <div className="relative flex h-[100vh] w-full  items-center justify-center bg-white">
-      <h1
-        onMouseEnter={() => setIsContact(true)}
-        onMouseLeave={() => setIsContact(false)}
-        className="absolute top-0 cursor-none  text-9xl font-semibold text-white"
-      >
-        Goodbye World
-      </h1>
-      <h1
-        onMouseEnter={() => setIsContact(true)}
-        onMouseLeave={() => setIsContact(false)}
-        className="absolute top-0 cursor-none  text-9xl font-semibold"
-      >
-        Hello World
-      </h1>
+  const parallax = useRef<IParallax>(null!);
 
-      <CircleCursor isContact={isContact} />
+  return (
+    <div>
+      <Parallax ref={parallax} pages={3}>
+        <ParallaxLayer
+          speed={0}
+          factor={1.5}
+          style={{ backgroundImage: `url('${Sky.src}')` }}
+        />
+        <ParallaxLayer offset={0.5} speed={2}>
+          <h1 className="text-center text-9xl font-semibold text-white">
+            Hello there hehe
+          </h1>
+        </ParallaxLayer>
+      </Parallax>
     </div>
   );
 }
