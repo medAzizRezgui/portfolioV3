@@ -3,7 +3,12 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import React, { useContext } from 'react';
-import { BiLogoGithub, BiLogoLinkedin, BiLogoUpwork, BiMailSend } from "react-icons/bi";
+import {
+  BiLogoGithub,
+  BiLogoLinkedin,
+  BiLogoUpwork,
+  BiMailSend,
+} from 'react-icons/bi';
 
 import { CursorContext } from './Context/CursorContext';
 

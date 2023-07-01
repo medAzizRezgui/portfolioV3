@@ -37,12 +37,13 @@ export const CircleCursor = () => {
       backgroundColor: 'white',
     },
     text: {
-      height: 400,
-      width: 400,
-      x: position.x - 200,
-      y: position.y - 200,
+      height: 500,
+      width: 500,
+      x: position.x - 250,
+      y: position.y - 250,
       backgroundColor: 'white',
       mixBlendMode: 'difference',
+      borderWidth: '10px',
     },
     eat: {
       height: 50,
@@ -56,7 +57,7 @@ export const CircleCursor = () => {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[100] h-[34px] w-[34px] rounded-[50%] "
+      className="pointer-events-none fixed left-0 top-0 z-[100] h-[34px] w-[34px] rounded-[50%] border-8 border-green "
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       variants={variants}

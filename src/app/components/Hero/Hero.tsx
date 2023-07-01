@@ -7,9 +7,9 @@ export const Hero = () => {
   const { setCursorState } = useContext(CursorContext);
 
   return (
-    <div className="h-[100vh] w-full bg-black">
-      <div className="flex h-full w-full flex-col items-center justify-center">
-        <p className="text-[20px] font-medium uppercase tracking-[5px] text-white">
+    <div className="h-[100vh] w-full bg-black ">
+      <div className="relative flex h-full w-full flex-col items-center justify-center">
+        <p className="text-[20px] font-medium uppercase tracking-[5px] text-green">
           Rezgui med aziz
         </p>
         <h1
