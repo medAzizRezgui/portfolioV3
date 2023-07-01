@@ -3,6 +3,7 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import React, { useContext } from 'react';
+import { BiLogoGithub, BiLogoLinkedin, BiLogoUpwork, BiMailSend } from "react-icons/bi";
 
 import { CursorContext } from './Context/CursorContext';
 
@@ -39,23 +40,31 @@ export default function RootLayout({
         <div
           onMouseEnter={() => setCursorState('eat')}
           onMouseLeave={() => setCursorState('default')}
-          className="h-[35px] w-[35px] rounded-full bg-green"
-        />
+          className="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-green"
+        >
+          <BiLogoLinkedin className="h-[25px] w-[25px] text-black" />
+        </div>
         <div
           onMouseEnter={() => setCursorState('eat')}
           onMouseLeave={() => setCursorState('default')}
-          className="h-[35px] w-[35px] rounded-full bg-green"
-        />
+          className="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-green"
+        >
+          <BiLogoUpwork className="h-[25px] w-[25px] text-black" />
+        </div>{' '}
         <div
           onMouseEnter={() => setCursorState('eat')}
           onMouseLeave={() => setCursorState('default')}
-          className="h-[35px] w-[35px] rounded-full bg-green"
-        />
+          className="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-green"
+        >
+          <BiLogoGithub className="h-[25px] w-[25px] text-black" />
+        </div>{' '}
         <div
           onMouseEnter={() => setCursorState('eat')}
           onMouseLeave={() => setCursorState('default')}
-          className="h-[35px] w-[35px] rounded-full bg-green"
-        />
+          className="flex h-[45px] w-[45px] items-center justify-center rounded-full bg-green"
+        >
+          <BiMailSend className="h-[25px] w-[25px] text-black" />
+        </div>
       </div>
       <body className={inter.className}>{children}</body>
     </html>
