@@ -1,13 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
-type Props = {
-  isContact: boolean;
-};
-export const CircleCursor = ({ isContact }: Props) => {
+import { CursorContext } from '../../Context/CursorContext';
+
+export const CircleCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const { cursorState } = useContext(CursorContext);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -22,18 +22,25 @@ export const CircleCursor = ({ isContact }: Props) => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [isContact]);
+  }, []);
 
   const variants = {
+    normal: {
+      x: position.x - 17,
+      y: position.y - 17,
+      backgroundColor: 'white',
+      opacity: 0,
+    },
     default: {
       x: position.x - 17,
       y: position.y - 17,
+      backgroundColor: 'white',
     },
     text: {
-      height: 200,
-      width: 200,
-      x: position.x - 100,
-      y: position.y - 100,
+      height: 400,
+      width: 400,
+      x: position.x - 200,
+      y: position.y - 200,
       backgroundColor: 'white',
       mixBlendMode: 'difference',
     },
@@ -41,11 +48,11 @@ export const CircleCursor = ({ isContact }: Props) => {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 h-[34px] w-[34px] rounded-[50%] bg-black"
+      className="pointer-events-none fixed left-0 top-0 z-[100] h-[34px] w-[34px] rounded-[50%] "
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       variants={variants}
-      animate={isContact ? 'text' : 'default'}
+      animate={cursorState}
     />
   );
 };
