@@ -13,34 +13,51 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const {setCursorState } = useContext(CursorContext);
+  const { setCursorState } = useContext(CursorContext);
 
   return (
     <html lang="en">
-      <div className="fixed right-10 top-10 flex flex-col gap-[10px] text-right text-[18px] font-medium  tracking-wider text-gray-500">
+      <div
+        onMouseEnter={() => setCursorState('normal')}
+        onMouseLeave={() => setCursorState('default')}
+        className="fixed right-10 top-10 flex flex-col gap-[20px] text-right text-[18px] font-medium  tracking-wider text-gray-500"
+      >
+        <div className="group relative flex items-center gap-[8px] hover:cursor-pointer">
+          <p className="relative z-[500] pr-8 group-hover:text-white">About</p>
+          <div className="absolute right-0 h-[10px] w-[10px] rounded-full bg-green transition-all duration-300 ease-linear group-hover:h-[30px] group-hover:w-[100px] group-hover:rounded-[8px]" />
+        </div>
+        <div className="group relative flex items-center gap-[8px] hover:cursor-pointer">
+          <p className="relative z-[500] group-hover:text-white">Work</p>
+          <div className="absolute right-0 h-[10px] w-[10px] rounded-full bg-red transition-all duration-300 ease-linear group-hover:h-[30px] group-hover:w-[100px] group-hover:rounded-[8px]" />
+        </div>
+        <div className="group relative flex items-center gap-[8px] hover:cursor-pointer">
+          <p className="relative z-[500] group-hover:text-white">Contact</p>
+          <div className="absolute right-0 h-[10px] w-[10px] rounded-full bg-blue transition-all duration-300 ease-linear group-hover:h-[30px] group-hover:w-[100px] group-hover:rounded-[8px]" />
+        </div>
+      </div>
+      <div className="fixed left-10 top-40 flex flex-col gap-[25px] text-right text-[18px] font-medium  tracking-wider text-gray-500">
         <div
-          onMouseEnter={() => setCursorState('normal')}
+          onMouseEnter={() => setCursorState('eat')}
           onMouseLeave={() => setCursorState('default')}
-          className="group relative flex items-center gap-[8px] hover:cursor-pointer"
-        >
-          <p className="relative z-[500] group-hover:text-white">About</p>
-          <div className="absolute right-0 h-[10px] w-[10px] rounded-full bg-green transition-all duration-300 ease-linear group-hover:h-[25px] group-hover:w-[100px] group-hover:rounded-[8px]" />
-        </div>
-        <div className="flex items-center gap-[8px]">
-          <p>Work</p>
-          <div className="h-[10px] w-[10px] rounded-full bg-red" />
-        </div>
-        <div className="flex items-center gap-[8px]">
-          <p>Contact</p>
-          <div className="h-[10px] w-[10px] rounded-full bg-blue" />
-        </div>
+          className="h-[35px] w-[35px] rounded-full bg-green"
+        />
+        <div
+          onMouseEnter={() => setCursorState('eat')}
+          onMouseLeave={() => setCursorState('default')}
+          className="h-[35px] w-[35px] rounded-full bg-green"
+        />
+        <div
+          onMouseEnter={() => setCursorState('eat')}
+          onMouseLeave={() => setCursorState('default')}
+          className="h-[35px] w-[35px] rounded-full bg-green"
+        />
+        <div
+          onMouseEnter={() => setCursorState('eat')}
+          onMouseLeave={() => setCursorState('default')}
+          className="h-[35px] w-[35px] rounded-full bg-green"
+        />
       </div>
       <body className={inter.className}>{children}</body>
-      <div className="fixed left-10 top-10 flex flex-col gap-[10px] text-right text-[18px] font-medium  tracking-wider text-gray-500">
-        <div className="h-[25px] w-[25px] rounded-full bg-green" />
-        <div className="h-[25px] w-[25px] rounded-full bg-green" />
-        <div className="h-[25px] w-[25px] rounded-full bg-green" />
-      </div>
     </html>
   );
 }

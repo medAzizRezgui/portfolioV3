@@ -44,6 +44,14 @@ export const CircleCursor = () => {
       backgroundColor: 'white',
       mixBlendMode: 'difference',
     },
+    eat: {
+      height: 50,
+      width: 50,
+      x: position.x - 25,
+      y: position.y - 25,
+      backgroundColor: '#00FFC2',
+      mixBlendMode: 'difference',
+    },
   };
 
   return (
