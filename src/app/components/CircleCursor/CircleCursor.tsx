@@ -1,13 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import React, { useContext, useEffect, useState } from 'react';
-
-import { CursorContext } from '../../Context/CursorContext';
+import React, { useEffect, useState } from 'react';
 
 export const CircleCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const { cursorState } = useContext(CursorContext);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
@@ -46,10 +43,10 @@ export const CircleCursor = () => {
       borderWidth: '10px',
     },
     eat: {
-      height: 50,
-      width: 50,
-      x: position.x - 25,
-      y: position.y - 25,
+      height: 60,
+      width: 60,
+      x: position.x - 30,
+      y: position.y - 30,
       backgroundColor: '#00FFC2',
       mixBlendMode: 'difference',
     },
@@ -57,11 +54,11 @@ export const CircleCursor = () => {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[100] h-[34px] w-[34px] rounded-[50%] border-8 border-green "
+      className="pointer-events-none fixed left-0 top-0 z-[100] h-[34px] w-[34px] rounded-[50%] border-2 border-green  "
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       variants={variants}
-      animate={cursorState}
+      animate="default"
     />
   );
 };
